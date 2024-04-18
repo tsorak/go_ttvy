@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"go_ttvy_input"
+	"os"
+)
 
 func main() {
-	fmt.Println("hello world")
+	ch := make(chan string)
+
+	go go_ttvy_input.ReadToChannel(os.Stdin, ch)
+
+	logStringChannel(ch)
 }
